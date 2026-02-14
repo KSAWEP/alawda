@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>العواد للتكييف</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--accent:#2fa5d5;--glow:rgba(47,165,213,0.35);--dark-bg:#080c14;--dark-s:#0b1018;--txt:#8899aa;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:'Tajawal',sans-serif;overflow:hidden;height:100%;background:var(--dark-bg);color:#c0ccdd}
+
+/* ============ LIQUID GLASS SYSTEM ============ */
+.lg-card{
+    position:relative;
+    background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.02) 100%);
+    backdrop-filter:blur(24px) saturate(1.6) brightness(1.1);
+    -webkit-backdrop-filter:blur(24px) saturate(1.6) brightness(1.1);
+    border:1px solid rgba(255,255,255,0.12);
+    border-radius:16px;
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.15),
+        inset 0 -1px 0 rgba(255,255,255,0.05),
+        0 0 0 0.5px rgba(255,255,255,0.1);
+    transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+    overflow:hidden;
+}
+.lg-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:50%;
+    background:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,transparent 100%);
+    border-radius:16px 16px 0 0;pointer-events:none;z-index:1;
+}
+.lg-card::after{
+    content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+    background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.06) 0%,transparent 50%);
+    pointer-events:none;z-index:1;
+}
+.lg-card:hover{
+    border-color:rgba(255,255,255,0.18);
+    box-shadow:
+        0 12px 40px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.2),
+        0 0 30px rgba(47,165,213,0.08);
+    transform:translateY(-2px);
+}
+
+.lg-accent{
+    background:linear-gradient(135deg,rgba(47,165,213,0.12) 0%,rgba(47,165,213,0.03) 100%);
+    border:1px solid rgba(47,165,213,0.2);
+    box-shadow:
+        0 8px 32px rgba(47,165,213,0.12),
+        inset 0 1px 0 rgba(47,165,213,0.15),
+        0 0 20px rgba(47,165,213,0.06);
+}
+.lg-accent:hover{
+    border-color:rgba(47,165,213,0.35);
+    box-shadow:
+        0 12px 40px rgba(47,165,213,0.2),
+        inset 0 1px 0 rgba(47,165,213,0.2),
+        0 0 40px rgba(47,165,213,0.1);
+}
+
+/* Liquid Glass Button */
+.lg-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 28px;border-radius:12px;
+    background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.02) 100%);
+    backdrop-filter:blur(16px) saturate(1.4);
+    border:1px solid rgba(255,255,255,0.12);
+    color:var(--w);font-weight:700;font-size:14px;text-decoration:none;
+    cursor:pointer;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+    position:relative;overflow:hidden;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.12),0 4px 16px rgba(0,0,0,0.2);
+}
+.lg-btn::before{
+    content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
+    transition:left 0.5s;
+}
+.lg-btn:hover::before{left:100%}
+.lg-btn:hover{
+    border-color:rgba(255,255,255,0.2);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 8px 24px rgba(0,0,0,0.3),0 0 20px rgba(47,165,213,0.1);
+    transform:translateY(-1px);
+    color:var(--w);
+}
+
+.lg-btn-accent{
+    background:linear-gradient(135deg,rgba(47,165,213,0.2) 0%,rgba(47,165,213,0.08) 100%);
+    border:1px solid rgba(47,165,213,0.25);
+    box-shadow:inset 0 1px 0 rgba(47,165,213,0.15),0 4px 16px rgba(47,165,213,0.15);
+}
+.lg-btn-accent:hover{
+    border-color:rgba(47,165,213,0.4);
+    box-shadow:inset 0 1px 0 rgba(47,165,213,0.2),0 8px 24px rgba(47,165,213,0.25),0 0 30px rgba(47,165,213,0.15);
+}
+
+.lg-btn-fill{
+    background:linear-gradient(135deg,rgba(47,165,213,0.75) 0%,rgba(27,143,191,0.85) 100%);
+    border:1px solid rgba(47,165,213,0.4);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.15),0 4px 20px rgba(47,165,213,0.3);
+}
+.lg-btn-fill:hover{
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.2),0 8px 30px rgba(47,165,213,0.4),0 0 40px rgba(47,165,213,0.2);
+}
+
+/* Liquid Glass Small Link */
+.lg-link{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:6px 16px;border-radius:10px;
+    background:linear-gradient(135deg,rgba(47,165,213,0.08) 0%,rgba(47,165,213,0.02) 100%);
+    backdrop-filter:blur(10px);
+    border:1px solid rgba(47,165,213,0.12);
+    color:var(--accent);font-weight:700;font-size:14px;text-decoration:none;
+    transition:all 0.3s;
+    box-shadow:inset 0 1px 0 rgba(47,165,213,0.08);
+}
+.lg-link::after{content:'←';font-size:16px}
+.lg-link:hover{
+    gap:14px;border-color:rgba(47,165,213,0.25);
+    background:rgba(47,165,213,0.12);
+    box-shadow:0 0 20px rgba(47,165,213,0.12);
+}
+
+/* Glow */
+.glow{text-shadow:0 0 30px var(--glow),0 0 60px rgba(47,165,213,0.15)}
+
+/* Glass Orbs */
+/* removed orbs */
+
+/* ============ PAGE PILING ============ */
+.ppw{position:relative;width:100%;height:100vh;overflow:hidden}
+.pps{position:absolute;top:0;left:0;width:100%;height:100vh;overflow:hidden;will-change:transform;transition:transform .9s cubic-bezier(.77,0,.175,1)}
+.pps[data-i="0"]{z-index:4}.pps[data-i="1"]{z-index:3}.pps[data-i="2"]{z-index:2}.pps[data-i="3"]{z-index:1}
+.pps.above{transform:translateY(-100vh)}.pps.active{transform:translateY(0)}.pps.below{transform:translateY(100vh)}
+.pps-inner{width:100%;height:100vh;overflow-y:auto;overflow-x:hidden}
+
+/* ============ SIDE NAV - Liquid Glass ============ */
+.pnav{
+    position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:999;
+    display:flex;flex-direction:column;gap:8px;padding:14px 10px;border-radius:22px;
+    background:linear-gradient(180deg,rgba(255,255,255,0.06) 0%,rgba(255,255,255,0.02) 100%);
+    backdrop-filter:blur(20px) saturate(1.4);
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 8px 32px rgba(0,0,0,0.3);
+}
+.pdot{width:10px;height:10px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:transparent;cursor:pointer;transition:all .4s;position:relative}
+.pdot.on{background:var(--accent);border-color:var(--accent);box-shadow:0 0 12px var(--glow),0 0 24px rgba(47,165,213,0.15);transform:scale(1.5)}
+.pdot .tip{position:absolute;right:28px;top:50%;transform:translateY(-50%);padding:6px 16px;border-radius:10px;font-size:11px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s;
+    background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.02) 100%);
+    backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);color:var(--w);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 4px 16px rgba(0,0,0,0.3)}
+.pdot:hover .tip{opacity:1}
+
+/* ============ HEADER - Liquid Glass ============ */
+.hdr{position:fixed;top:0;left:0;right:0;z-index:1000;padding:14px 0;transition:all .4s}
+.hdr.sc{
+    background:linear-gradient(180deg,rgba(8,12,20,0.6) 0%,rgba(8,12,20,0.4) 100%);
+    backdrop-filter:blur(30px) saturate(1.6) brightness(1.05);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    box-shadow:0 4px 30px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(255,255,255,0.04);
+    padding:8px 0;
+}
+.hc{max-width:1300px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.logo img{height:45px;filter:brightness(0) invert(1)}
+.mnav{display:flex;align-items:center;gap:2px}
+.mnav a{color:rgba(255,255,255,0.7);text-decoration:none;padding:8px 14px;font-size:14px;font-weight:500;transition:all .3s;border-radius:10px;position:relative;white-space:nowrap}
+.mnav a:hover{color:var(--w);background:rgba(255,255,255,0.06)}
+.mnav a::after{content:'';position:absolute;bottom:3px;right:14px;left:14px;height:2px;background:var(--accent);border-radius:1px;transform:scaleX(0);transition:transform .3s;transform-origin:right}
+.mnav a:hover::after{transform:scaleX(1)}
+.hx{display:flex;align-items:center;gap:10px}
+.burg{display:none;cursor:pointer;width:30px;height:22px;flex-direction:column;justify-content:space-between;margin-right:15px}
+.burg span{height:3px;background:var(--w);border-radius:2px;transition:all .4s;transform-origin:center}
+.burg:hover span:nth-child(1){transform:translateY(2px);width:70%}
+.burg:hover span:nth-child(3){transform:translateY(-2px);width:70%}
+.burg:hover span:nth-child(2){width:100%}
+
+/* ============ HERO ============ */
+.hero{position:relative;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--dark-bg)}
+.hero-bg{position:absolute;inset:0;background:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_2.jpg') center/cover no-repeat;opacity:.15}
+.hero-ov{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(47,165,213,0.06) 0%,transparent 55%),linear-gradient(180deg,rgba(5,10,25,0.3) 0%,rgba(5,10,25,0.6) 100%)}
+.hero-c{position:relative;z-index:2;color:var(--w);max-width:900px;padding:0 20px}
+.hcnt{display:inline-flex;align-items:center;gap:14px;padding:16px 38px;margin-bottom:32px}
+.hcnt .lab{font-size:15px;opacity:.7}.hcnt .val{font-size:56px;font-weight:900;letter-spacing:2px}.hcnt .unit{font-size:16px;opacity:.6}
+.hero-c h1{font-size:54px;font-weight:900;margin-bottom:15px;line-height:1.2;color:var(--accent)}
+.hero-c>p{font-size:20px;opacity:.8;margin-bottom:35px;font-weight:300}
+.si{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;animation:bo 2s infinite}
+.si a{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--w);font-size:16px;text-decoration:none;transition:all .3s;
+    background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+    backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.08);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.1)}
+.si a:hover{border-color:rgba(47,165,213,0.3);box-shadow:0 0 15px rgba(47,165,213,0.2)}
+
+/* ============ ABOUT ============ */
+.sdc{background:var(--dark-s)}.sdc-in{padding:100px 20px 60px;max-width:1300px;margin:0 auto}
+.st{font-size:36px;font-weight:900;color:var(--accent);margin-bottom:20px}
+.sl{font-size:17px;color:#8899aa;line-height:1.9;max-width:800px}.sl strong{color:var(--accent)}
+.bg_{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:50px;align-items:center}
+.bimg{border-radius:18px;overflow:hidden;position:relative}
+.bimg::after{content:'';position:absolute;inset:0;border-radius:18px;border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 0 rgba(255,255,255,0.08);pointer-events:none}
+.bimg img{width:100%;height:auto;max-height:450px;object-fit:cover;transition:transform .6s}.bimg:hover img{transform:scale(1.05)}
+.bt h3{font-size:24px;font-weight:800;margin-bottom:15px;color:var(--w)}
+.bt p{font-size:15px;line-height:1.9;color:#8899aa;margin-bottom:20px}.bt strong{color:var(--accent)}
+.ig_{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:60px;align-items:center}
+
+/* Glass stat mini cards */
+.srow{display:flex;gap:10px;margin-top:15px;flex-wrap:wrap}
+.sg{display:inline-flex;flex-direction:column;align-items:center;padding:14px 22px;border-radius:14px;min-width:90px}
+.sg .n{font-size:26px;font-weight:900;color:var(--w)}.sg .l{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px}
+
+/* Impacts */
+.iv{position:relative;border-radius:18px;overflow:hidden;height:350px}
+.iv>img{width:100%;height:100%;object-fit:cover}
+.iov{position:absolute;inset:0;background:rgba(8,12,20,0.85);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center}
+.ic{text-align:center;color:var(--w);padding:30px}
+.ii{display:none}.ii.on{display:block;animation:fi .5s}
+.iic{font-size:44px;color:var(--accent);margin-bottom:12px}
+.iiv{font-size:30px;font-weight:900}.iid{font-size:13px;opacity:.7;margin-top:8px}
+.idots{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.idots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.15);cursor:pointer;transition:all .3s}
+.idots span.on{background:var(--accent);transform:scale(1.4);box-shadow:0 0 8px var(--glow)}
+
+/* ============ PROJECTS ============ */
+.sp{background:var(--dark-bg);height:100vh;position:relative;overflow:hidden}
+.sph{position:absolute;top:0;right:0;left:0;z-index:5;padding:80px 20px 20px;max-width:1300px;margin:0 auto;pointer-events:none}
+.sph *{pointer-events:auto}
+.stl{font-size:36px;font-weight:900;color:var(--w);margin-bottom:15px}.stl span{color:var(--accent)}
+.sll{font-size:15px;color:var(--txt);line-height:1.8;max-width:850px}
+.pc{position:absolute;inset:0;overflow:hidden}
+.ps{display:none;position:absolute;inset:0}.ps.on{display:block;animation:fi .6s}
+.psbg{position:absolute;inset:0;background-size:cover;background-position:center}
+.psov{position:absolute;inset:0;background:linear-gradient(to left,rgba(8,12,20,0.92) 0%,rgba(8,12,20,0.5) 100%)}
+.psc{position:relative;z-index:2;height:100%;display:flex;align-items:center;padding:0 60px;max-width:1300px;margin:0 auto}
+.pf{flex:0 0 40%}.pi{flex:0 0 55%;margin-right:auto}
+.ps-img{display:none}
+
+/* Glass frame around carousel */
+.pc{position:absolute;inset:20px 30px 80px;overflow:hidden;border-radius:24px;border:1px solid rgba(255,255,255,0.1);box-shadow:0 12px 48px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.1),0 0 30px rgba(47,165,213,0.05)}
+.pc::after{content:'';position:absolute;inset:0;border-radius:24px;border:1px solid rgba(255,255,255,0.06);pointer-events:none;z-index:5;box-shadow:inset 0 1px 0 rgba(255,255,255,0.08)}
+.pf{flex:0 0 40%}.pfx{margin-bottom:25px}.pfv{font-size:40px;font-weight:900;color:var(--w)}.pfu{font-size:16px;color:var(--accent);margin-right:10px}.pfl{font-size:13px;color:var(--txt)}
+.pi{flex:0 0 55%;margin-right:auto}.pi h3{font-size:30px;font-weight:900;color:var(--w);margin-bottom:12px}.pi p{font-size:15px;color:var(--txt);line-height:1.8;margin-bottom:18px}
+
+/* Glass carousel controls */
+.cc{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;padding:6px;border-radius:18px;
+    background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+    backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.1),0 8px 24px rgba(0,0,0,0.3)}
+.cb{width:44px;height:44px;border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+    background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+    color:var(--w);font-size:14px;cursor:pointer;transition:all .3s;
+    display:flex;align-items:center;justify-content:center;
+    backdrop-filter:blur(10px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.08)}
+.cb:hover{background:rgba(47,165,213,0.12);border-color:rgba(47,165,213,0.3);box-shadow:0 0 20px rgba(47,165,213,0.2)}
+
+/* ============ COMMITMENTS ============ */
+.scm{background:var(--dark-s)}.scm-in{padding:80px 20px 40px;max-width:1300px;margin:0 auto}
+.cg{display:grid;grid-template-columns:1fr 2fr;gap:16px;margin-top:35px}
+.ck{position:relative;border-radius:18px;overflow:hidden;min-height:100%;transition:transform .4s}
+.ck:hover{transform:translateY(-3px)}
+.ckbg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s}
+.ck:hover .ckbg{transform:scale(1.05)}
+.ckov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,20,0.3) 0%,rgba(8,12,20,0.88) 100%)}
+.ckc{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:25px;color:var(--w)}
+.ckc h3{font-size:22px;font-weight:800;margin-bottom:8px}.ckc p{font-size:13px;opacity:.75;line-height:1.7;margin-bottom:12px}
+.cr{display:grid;grid-template-columns:5fr 7fr;grid-template-rows:1fr 1fr;gap:16px}
+
+/* Small cards = liquid glass */
+.sc{padding:25px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative}
+.sc h3{font-size:20px;font-weight:800;margin-bottom:10px;color:var(--w)}.sc p{font-size:13px;line-height:1.7;margin-bottom:12px;color:rgba(255,255,255,0.55)}
+.sc .ico{font-size:36px;margin-bottom:12px;color:var(--accent);opacity:.4}
+.sc-g h3{color:#5fd97e}
+.sc-g{border-right:3px solid rgba(40,167,69,0.4)}
+
+/* ============ FOOTER ============ */
+.ft{background:rgba(5,8,14,0.7);backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,0.04);color:var(--txt);padding:50px 20px 25px}
+.fc{max-width:1300px;margin:0 auto}.fg{display:grid;grid-template-columns:1fr 2fr;gap:50px}
+.fl img{height:45px;margin-bottom:15px;filter:brightness(0) invert(1)}
+.fa_{font-size:13px;line-height:1.8;margin-bottom:15px}
+.fct{list-style:none;padding:0}.fct li{margin-bottom:8px;font-size:13px}.fct a{color:var(--txt);text-decoration:none;transition:color .3s}.fct a:hover{color:var(--accent)}.fct i{margin-left:8px;color:var(--accent);font-size:12px}
+.flt{font-size:18px;font-weight:800;color:var(--w);margin-bottom:20px}
+.flg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.flg a{color:var(--txt);text-decoration:none;font-size:12px;padding:4px 0;transition:all .3s}.flg a:hover{color:var(--accent)}
+.fb{margin-top:30px;padding-top:15px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center}
+.fcr{font-size:12px;opacity:.5}.fcr a{color:var(--accent);text-decoration:none}
+
+/* Glass social icons */
+.fso{display:flex;align-items:center;gap:8px}.fso .t{font-size:13px;font-weight:700;color:var(--w);margin-left:8px}
+.fso a{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:var(--txt);text-decoration:none;font-size:14px;transition:all .3s;
+    background:linear-gradient(135deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));
+    backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.06);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.08)}
+.fso a:hover{background:rgba(47,165,213,0.12);border-color:rgba(47,165,213,0.25);color:var(--accent);box-shadow:0 0 15px rgba(47,165,213,0.15)}
+
+/* ============ ANIM ============ */
+@keyframes fi{from{opacity:0}to{opacity:1}}
+@keyframes fiu{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bo{0%,20%,50%,80%,100%{transform:translateX(-50%) translateY(0)}40%{transform:translateX(-50%) translateY(-12px)}60%{transform:translateX(-50%) translateY(-6px)}}
+.pps.active .an{animation:fiu .7s ease forwards}
+.an{opacity:0}.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}
+.pps[data-i="0"] .an{animation:fiu .7s ease forwards}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:992px){.mnav{display:none}.burg{display:flex}.hero-c h1{font-size:34px}.hcnt .val{font-size:42px}.bg_,.ig_{grid-template-columns:1fr}.psc{flex-direction:column;padding:30px 20px}.pf,.pi{flex:unset;width:100%}.cg{grid-template-columns:1fr}.cr{grid-template-columns:1fr}.fg{grid-template-columns:1fr;gap:30px}.flg{grid-template-columns:repeat(2,1fr)}.fb{flex-direction:column;gap:15px;text-align:center}.pnav{display:none}.pc{inset:10px 10px 60px}}
+@media(max-width:576px){.hero-c h1{font-size:26px}.st,.stl{font-size:26px}}
+.mob{position:fixed;inset:0;z-index:2000;display:none;padding:80px 30px;overflow-y:auto;background:rgba(8,12,20,0.92);backdrop-filter:blur(24px)}
+.mob.open{display:block}
+.mob-x{position:absolute;top:20px;left:20px;font-size:30px;color:var(--w);cursor:pointer;background:none;border:none}
+.mob ul{list-style:none;padding:0}.mob li{border-bottom:1px solid rgba(255,255,255,0.06)}.mob a{display:block;color:var(--w);text-decoration:none;padding:15px 0;font-size:18px;font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+<div class="hc">
+<div class="logo"><a href="#"><img src="https://alawad-air.com/wp-content/uploads/2024/04/Asset-14.svg" alt="العواد للتكييف"></a></div>
+<nav class="mnav"><a href="#">الرئيسية</a><a href="#">من نحن</a><a href="#">خدماتنا</a><a href="#">تواصل معنا</a><a href="#">المدونة</a><a href="#">الخصوصية</a></nav>
+<div class="hx">
+<a href="#" class="lg-btn lg-btn-accent" style="padding:7px 22px;font-size:13px">تواصل معنا</a>
+<a href="#" class="lg-btn lg-btn-fill" style="padding:7px 22px;font-size:13px">طلب الصيانة</a>
+</div>
+<div class="burg" onclick="document.getElementById('mob').classList.add('open')"><span></span><span></span><span></span></div>
+</div>
+</header>
+
+<!-- SIDE NAV -->
+<div class="pnav" id="pnav">
+<div class="pdot on" onclick="go(0)"><span class="tip">الرئيسية</span></div>
+<div class="pdot" onclick="go(1)"><span class="tip">عن العواد</span></div>
+<div class="pdot" onclick="go(2)"><span class="tip">خدماتنا</span></div>
+<div class="pdot" onclick="go(3)"><span class="tip">التزاماتنا</span></div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mob" id="mob">
+<button class="mob-x" onclick="this.parentElement.classList.remove('open')">✕</button>
+<ul><li><a href="#">الرئيسية</a></li><li><a href="#">من نحن</a></li><li><a href="#">خدماتنا</a></li><li><a href="#">تواصل معنا</a></li><li><a href="#">المدونة</a></li><li><a href="#">الخصوصية</a></li></ul>
+</div>
+
+<div class="ppw" id="ppw">
+
+<!-- ======= HERO ======= -->
+<div class="pps active" data-i="0">
+<div class="hero">
+<div class="hero-bg"></div>
+<div class="hero-ov"></div>
+<div class="hero-c">
+<div class="hcnt lg-card lg-accent an d1" style="border-radius:16px">
+<span class="lab">مشاريع منجزة</span>
+<span class="val glow" id="cnt">0</span>
+<span class="unit">مشروع +</span>
+</div>
+<h1 class="an d2 glow">العواد للتكييف</h1>
+<p class="an d3">حلول تكييف متكاملة من التصميم حتى الصيانة</p>
+<a href="#" class="lg-btn lg-btn-accent an d4" style="padding:14px 45px;font-size:16px;border-radius:14px">تواصل معنا ←</a>
+</div>
+<div class="si"><a href="#"><i class="fa fa-chevron-down"></i></a></div>
+</div>
+</div>
+
+<!-- ======= ABOUT ======= -->
+<div class="pps below" data-i="1">
+<div class="pps-inner sdc">
+<div class="sdc-in">
+<h2 class="st glow an d1">عن العواد</h2>
+<p class="sl an d2"><strong>شركة العواد للتكييف</strong>، بخبرة تمتد لأكثر من <strong>25 عامًا</strong>، تعد واحدة من الشركات الرائدة في مجال حلول التكييف المتكاملة في <strong>المملكة العربية السعودية</strong>. نعمل باحترافية عالية على دراسة وتصميم وتنفيذ مشاريع التكييف بأنواعها المختلفة.</p>
+<div class="bg_ an d3">
+<div class="bimg"><img src="https://alawad-air.com/wp-content/uploads/2025/05/Banner_6.jpg" alt="خدمات التكييف"></div>
+<div class="bt">
+<h3>خدمات تكييف متكاملة</h3>
+<p>نعتز بفريقنا المتخصص من المهندسين والفنيين، ونفخر بتنفيذ أكثر من <strong>2500 مشروع</strong> ناجح، مما يعكس التزامنا بالجودة والدقة في كل مرحلة من مراحل العمل.</p>
+<a href="#" class="lg-link">اقرأ المزيد</a>
+</div>
+</div>
+<div class="ig_ an d4">
+<div class="bt">
+<h3>ضمان وصيانة شاملة</h3>
+<p>نقدم <strong>سنة صيانة مجانية</strong> من العواد و<strong>5 سنوات ضمان</strong> من الشركة الموردة.</p>
+<div class="srow">
+<div class="sg lg-card"><div class="n">2,500+</div><div class="l">مشروع</div></div>
+<div class="sg lg-card"><div class="n">25+</div><div class="l">سنة خبرة</div></div>
+<div class="sg lg-card"><div class="n">98%</div><div class="l">رضا</div></div>
+</div>
+</div>
+<div class="iv">
+<img src="https://alawad-air.com/wp-content/uploads/2025/05/Banner_8.jpg" alt="">
+<div class="iov">
+<div class="ic">
+<div class="ii on"><div class="iic"><i class="fa fa-project-diagram"></i></div><div class="iiv">2,500+</div><div class="iid">مشروع تم تنفيذه</div></div>
+<div class="ii"><div class="iic"><i class="fa fa-users"></i></div><div class="iiv">500+</div><div class="iid">عميل سعيد</div></div>
+<div class="ii"><div class="iic"><i class="fa fa-calendar-check"></i></div><div class="iiv">25+</div><div class="iid">سنة خبرة</div></div>
+<div class="ii"><div class="iic"><i class="fa fa-smile"></i></div><div class="iiv">98%</div><div class="iid">رضا العملاء</div></div>
+<div class="ii"><div class="iic"><i class="fa fa-shield-alt"></i></div><div class="iiv">5 سنوات</div><div class="iid">ضمان الشركة</div></div>
+<div class="ii"><div class="iic"><i class="fa fa-tools"></i></div><div class="iiv">سنة</div><div class="iid">صيانة مجانية</div></div>
+<div class="idots"><span class="on" onclick="si(0)"></span><span onclick="si(1)"></span><span onclick="si(2)"></span><span onclick="si(3)"></span><span onclick="si(4)"></span><span onclick="si(5)"></span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ======= PROJECTS ======= -->
+<div class="pps below" data-i="2">
+<div class="sp">
+<div class="sph">
+<h2 class="stl an d1"><span class="glow">خدماتنا</span> المتكاملة</h2>
+<p class="sll an d2">حلول متكاملة لجميع احتياجات التكييف والتهوية. نقدم خدمات متكاملة في تجهيز وتركيب وصيانة التكييفات بكل انواعها.</p>
+</div>
+<div class="pc an d3">
+<div class="ps on" data-s="0"><div class="psbg" style="background-image:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_4.jpg')"></div><div class="psov"></div><div class="psc"><div class="pf"><div class="pfx"><span class="pfv">2,500+</span><span class="pfu">مشروع</span><div class="pfl">تم تنفيذه بنجاح</div></div><div class="pfx"><span class="pfv">25+</span><span class="pfu">سنة</span><div class="pfl">خبرة في المجال</div></div></div><div class="pi"><h3>نظم التبريد الكاسيت</h3><p>أنظمة تبريد كاسيت عالية الكفاءة للمساحات التجارية والمكاتب، توفر توزيع هواء متساوي بأربعة اتجاهات.</p><a href="#" class="lg-link">اقرأ المزيد</a></div></div></div>
+<div class="ps" data-s="1"><div class="psbg" style="background-image:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_2.jpg')"></div><div class="psov"></div><div class="psc"><div class="pf"><div class="pfx"><span class="pfv">500+</span><span class="pfu">عميل</span><div class="pfl">عميل سعيد</div></div><div class="pfx"><span class="pfv">98%</span><span class="pfu">رضا</span><div class="pfl">رضا العملاء</div></div></div><div class="pi"><h3>نظم التكييف السبليت</h3><p>توريد وتركيب أنظمة التكييف السبليت من أفضل العلامات التجارية العالمية مع ضمان شامل وصيانة دورية.</p><a href="#" class="lg-link">اقرأ المزيد</a></div></div></div>
+<div class="ps" data-s="2"><div class="psbg" style="background-image:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_6.jpg')"></div><div class="psov"></div><div class="psc"><div class="pf"><div class="pfx"><span class="pfv">30%</span><span class="pfu">توفير</span><div class="pfl">في استهلاك الكهرباء</div></div><div class="pfx"><span class="pfv">5</span><span class="pfu">سنوات</span><div class="pfl">ضمان الشركة</div></div></div><div class="pi"><h3>أنظمة المياه المبردة</h3><p>تصميم وتنفيذ أنظمة المياه المبردة المركزية للمباني الكبيرة والمجمعات التجارية.</p><a href="#" class="lg-link">اقرأ المزيد</a></div></div></div>
+<div class="ps" data-s="3"><div class="psbg" style="background-image:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_8.jpg')"></div><div class="psov"></div><div class="psc"><div class="pf"><div class="pfx"><span class="pfv">24/7</span><span class="pfu">دعم</span><div class="pfl">خدمة على مدار الساعة</div></div><div class="pfx"><span class="pfv">سنة</span><span class="pfu">مجاناً</span><div class="pfl">صيانة مجانية</div></div></div><div class="pi"><h3>تصنيع مجاري الهواء</h3><p>تصنيع مجاري الهواء بمختلف الأحجام والمواصفات باستخدام أحدث المعدات وأفضل المواد.</p><a href="#" class="lg-link">اقرأ المزيد</a></div></div></div>
+<div class="ps" data-s="4"><div class="psbg" style="background-image:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_4.jpg')"></div><div class="psov"></div><div class="psc"><div class="pf"><div class="pfx"><span class="pfv">6</span><span class="pfu">أشهر</span><div class="pfl">صيانة دورية شاملة</div></div><div class="pfx"><span class="pfv">100%</span><span class="pfu">أصلية</span><div class="pfl">قطع غيار معتمدة</div></div></div><div class="pi"><h3>برامج الصيانة العامة</h3><p>برامج صيانة شاملة ودورية لضمان استمرارية عمل أنظمة التكييف بأفضل أداء.</p><a href="#" class="lg-link">اقرأ المزيد</a></div></div></div>
+<div class="cc"><button class="cb" onclick="pp()"><i class="fa fa-chevron-right"></i></button><button class="cb" onclick="np()"><i class="fa fa-chevron-left"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- ======= COMMITMENTS ======= -->
+<div class="pps below" data-i="3">
+<div class="pps-inner scm">
+<div class="scm-in">
+<h2 class="st glow an d1">التزاماتنا</h2>
+<div class="cg an d2">
+<div class="ck"><div class="ckbg" style="background-image:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_4.jpg')"></div><div class="ckov"></div><div class="ckc"><h3 class="glow">رؤيتنا</h3><p>ان نكون واحدة من أكبر 10 شركات في قطاع التكييف في المملكة العربية السعودية خلال الخمس سنوات القادمة</p><a href="#" class="lg-link">اقرأ المزيد</a></div></div>
+<div class="cr">
+<div class="sc lg-card"><div><div class="ico"><i class="fab fa-x-twitter"></i></div></div><h3>@alawadaircondit</h3><a href="#" class="lg-link">تابعنا</a></div>
+<div class="sc lg-card sc-g"><h3>الجودة والإلتزام</h3><p>نلتزم بأعلى معايير الجودة في جميع مراحل العمل من التصميم حتى التنفيذ والصيانة.</p><a href="#" class="lg-link">اقرأ المزيد</a></div>
+<div class="sc lg-card" style="padding:0"><div class="ckbg" style="background-image:url('https://alawad-air.com/wp-content/uploads/2025/05/Banner_8.jpg')"></div><div class="ckov"></div><div class="ckc"><h3>خدمات ما بعد البيع</h3><p>صيانة مجانية · سرعة التجاوب · توفر قطع الغيار</p><a href="#" class="lg-link">اقرأ المزيد</a></div></div>
+<div class="sc lg-card"><h3>نصائح مهمة</h3><p>اضبط التكييف على 24-26 درجة · نظف الفلاتر شهرياً · أغلق النوافذ لتوفير 30% من الكهرباء</p><a href="#" class="lg-link">اقرأ المزيد</a></div>
+</div>
+</div>
+</div>
+<footer class="ft">
+<div class="fc">
+<div class="fg">
+<div><div class="fl"><img src="https://alawad-air.com/wp-content/uploads/2024/04/Asset-14.svg" alt=""></div><p class="fa_">واحدة من الشركات الرائدة في حلول التكييف المتكاملة<br>في المملكة العربية السعودية</p><ul class="fct"><li><a href="tel:0112110870"><i class="fa fa-phone"></i> 0112110870</a></li><li><a href="https://wa.me/966555808224"><i class="fab fa-whatsapp"></i> 966555808224</a></li></ul></div>
+<div><h4 class="flt">روابط سريعة</h4><div class="flg"><a href="#">الرئيسية</a><a href="#">من نحن</a><a href="#">خدماتنا</a><a href="#">نظم التبريد الكاسيت</a><a href="#">برامج الصيانة</a><a href="#">نظم التبريد المخفي</a><a href="#">مراوح التهوية</a><a href="#">التكييف السبليت</a><a href="#">أنظمة المياه المبردة</a><a href="#">مجاري الهواء</a><a href="#">تواصل معنا</a><a href="#">المدونة</a></div></div>
+</div>
+<div class="fb">
+<div class="fcr">جميع الحقوق محفوظة لشركة العواد للتكييف © 2025 - <a href="http://tara.com.sa" target="_blank">تارا</a></div>
+<div class="fso"><span class="t">تواصل معنا</span><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-tiktok"></i></a><a href="#"><i class="fab fa-snapchat-ghost"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+const S=document.querySelectorAll('.pps'),D=document.querySelectorAll('.pdot'),T=S.length;
+let c=0,a=false;
+function go(i){if(a||i===c||i<0||i>=T)return;a=true;c=i;
+S.forEach((s,x)=>{s.classList.remove('active','above','below');s.classList.add(x<c?'above':x===c?'active':'below');});
+D.forEach((d,x)=>d.classList.toggle('on',x===c));
+document.getElementById('hdr').classList.toggle('sc',c>0);
+S[c].querySelectorAll('.an').forEach(e=>{e.style.animation='none';e.offsetHeight;e.style.animation='';});
+setTimeout(()=>a=false,900);}
+window.go=go;
+// Smart scroll: scroll inside section first, then transition
+let edgeCount=0,lastDir=0,wt2=null;
+function getInner(idx){return S[idx].querySelector('.pps-inner');}
+function isAtBottom(el){if(!el)return true;return Math.abs(el.scrollHeight-el.scrollTop-el.clientHeight)<5;}
+function isAtTop(el){if(!el)return true;return el.scrollTop<5;}
+
+document.addEventListener('wheel',function(e){
+    const inner=getInner(c);
+    const dir=e.deltaY>0?1:-1;
+    // If section has scrollable content
+    if(inner && inner.scrollHeight>inner.clientHeight+10){
+        const atEnd=(dir>0&&isAtBottom(inner))||(dir<0&&isAtTop(inner));
+        if(!atEnd){
+            // Let it scroll naturally inside the section
+            return;
+        }
+        // At edge - need extra wheel to confirm transition
+        e.preventDefault();
+        if(dir!==lastDir){edgeCount=0;lastDir=dir;}
+        edgeCount++;
+        if(edgeCount>=2){
+            if(wt2)return;
+            wt2=setTimeout(()=>{wt2=null;},800);
+            edgeCount=0;
+            go(c+dir);
+        }
+    } else {
+        // No scrollable content (hero, projects) - transition immediately
+        e.preventDefault();
+        if(wt2)return;
+        wt2=setTimeout(()=>{wt2=null;},800);
+        go(c+dir);
+    }
+},{passive:false});
+
+let ty=0,touchInner=null;
+document.addEventListener('touchstart',function(e){
+    ty=e.touches[0].clientY;
+    touchInner=getInner(c);
+},{passive:true});
+document.addEventListener('touchend',function(e){
+    const diff=ty-e.changedTouches[0].clientY;
+    if(Math.abs(diff)<50)return;
+    const dir=diff>0?1:-1;
+    if(touchInner && touchInner.scrollHeight>touchInner.clientHeight+10){
+        const atEnd=(dir>0&&isAtBottom(touchInner))||(dir<0&&isAtTop(touchInner));
+        if(!atEnd)return;
+    }
+    go(c+dir);
+},{passive:true});
+
+document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowDown'||e.key==='PageDown'){
+        const inner=getInner(c);
+        if(inner&&inner.scrollHeight>inner.clientHeight+10&&!isAtBottom(inner)){return;}
+        e.preventDefault();go(c+1);
+    }else if(e.key==='ArrowUp'||e.key==='PageUp'){
+        const inner=getInner(c);
+        if(inner&&inner.scrollHeight>inner.clientHeight+10&&!isAtTop(inner)){return;}
+        e.preventDefault();go(c-1);
+    }
+});
+function ac(el,t,d){let s=0;const inc=t/(d/16);(function u(){s+=inc;if(s>=t){el.textContent=t.toLocaleString();return;}el.textContent=Math.ceil(s).toLocaleString();requestAnimationFrame(u);})();}
+setTimeout(()=>ac(document.getElementById('cnt'),2500,3000),600);
+let cp=0;const PS=document.querySelectorAll('.ps'),TP=PS.length;
+function sp(i){PS.forEach(s=>s.classList.remove('on'));PS[i].classList.add('on');cp=i;}
+window.np=()=>sp((cp+1)%TP);window.pp=()=>sp((cp-1+TP)%TP);setInterval(window.np,8000);
+let ci=0;const II=document.querySelectorAll('.ii'),ID=document.querySelectorAll('.idots span');
+window.si=function(i){II.forEach(x=>x.classList.remove('on'));ID.forEach(x=>x.classList.remove('on'));II[i].classList.add('on');ID[i].classList.add('on');ci=i;};
+setInterval(()=>window.si((ci+1)%II.length),4000);
+})();
+</script>
+</body>
+</html>
